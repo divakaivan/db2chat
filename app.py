@@ -142,7 +142,7 @@ with st.sidebar:
     if st.button('Connect'):
         with st.spinner('Connecting to database...'):
             st.success(f"Connected to **{selected_db[1]}**")
-            st.markdown(f'# {selected_db[1]}\'s schema')
+    st.markdown(f'# {selected_db[1]}\'s schema')
     extractor = sqliteschema.SQLiteSchemaExtractor(selected_db[1])
     st.markdown(extractor.dumps(output_format='markdown', verbosity_level=1))
 
