@@ -28,6 +28,7 @@ You can view your db's schema:
 <img width="731" alt="image" src="https://github.com/divakaivan/db2chat/assets/54508530/e054998b-1afa-4fba-8123-cd8b1544e046">
 
 You can see the executed SQL query by hovering the (?)
+
 <img width="601" alt="image" src="https://github.com/divakaivan/db2chat/assets/54508530/2b827177-3d65-4228-af17-aa37d958bfee">
    
 ## Why SQLite?
