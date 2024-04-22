@@ -143,8 +143,8 @@ with st.sidebar:
         with st.spinner('Connecting to database...'):
             st.success(f"Connected to **{selected_db[1]}**")
             st.markdown(f'# {selected_db[1]}\'s schema')
-            extractor = sqliteschema.SQLiteSchemaExtractor(selected_db[1])
-            st.markdown(extractor.dumps(output_format='markdown', verbosity_level=1))
+    extractor = sqliteschema.SQLiteSchemaExtractor(selected_db[1])
+    st.markdown(extractor.dumps(output_format='markdown', verbosity_level=1))
 
 for message in st.session_state.chat_history:
     if isinstance(message, AIMessage):
