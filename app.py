@@ -10,8 +10,6 @@ import streamlit as st
 import sqliteschema
 
 import os
-# from dotenv import load_dotenv
-# load_dotenv()
 
 db_file = 'chinook.db'
 db = SQLDatabase.from_uri(f'sqlite:///{db_file}')
@@ -166,7 +164,7 @@ if user_query is not None and user_query.strip() != '':
         
     with st.chat_message('AI'):
         try:
-            llm = ChatGroq(model=selectbox_llm, temperature=0)# if selectbox_llm in ['mixtral-8x7b-32768', 'gemma-7b-it', 'llama3-8b-8192'] else ChatOpenAI(model="gpt-4-0125-preview")
+            llm = ChatGroq(model=selectbox_llm, temperature=0) if selectbox_llm in ['mixtral-8x7b-32768', 'gemma-7b-it', 'llama3-8b-8192'] else ChatOpenAI(model="gpt-4-0125-preview")
             response = get_response(user_query, selected_db[0], st.session_state.chat_history, llm)
             st.markdown(response)
             st.session_state.chat_history.append(AIMessage(content=response))
