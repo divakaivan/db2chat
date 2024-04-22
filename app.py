@@ -93,7 +93,7 @@ def get_response(user_query, db, chat_history, llm):
     'chat_history': chat_history,
   })
   print(f'{query_result=}')
-  return result
+  return result, query_result
 
 
 if 'chat_history' not in st.session_state:
@@ -165,8 +165,8 @@ if user_query is not None and user_query.strip() != '':
     with st.chat_message('AI'):
         try:
             llm = ChatGroq(model=selectbox_llm, temperature=0) if selectbox_llm in ['mixtral-8x7b-32768', 'gemma-7b-it', 'llama3-8b-8192'] else ChatOpenAI(model="gpt-4-0125-preview")
-            response = get_response(user_query, selected_db[0], st.session_state.chat_history, llm)
-            st.markdown(response)
+            response, query_response = get_response(user_query, selected_db[0], st.session_state.chat_history, llm)
+            st.markdown(response, help=query_response)
             st.session_state.chat_history.append(AIMessage(content=response))
         except Exception as e:
             st.error(f'Oops! There was an error: {e}')
