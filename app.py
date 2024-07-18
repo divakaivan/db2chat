@@ -123,7 +123,7 @@ with st.sidebar:
     if selectbox_llm in ['mixtral-8x7b-32768', 'gemma-7b-it', 'llama3-8b-8192']:
         os.environ['GROQ_API_KEY'] = api_key
     else:
-        os.environ['OPEN_AI_KEY'] = api_key
+        os.environ['OPENAI_API_KEY'] = api_key
     uploaded_db = st.file_uploader(label='Upload your SQLite database file',type='sqlite')
     if uploaded_db:
         if st.button('Upload'):
