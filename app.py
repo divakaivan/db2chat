@@ -129,7 +129,7 @@ with st.sidebar:
         if st.button('Upload'):
             dbs[uploaded_db.name] = [SQLDatabase.from_uri(f'sqlite:///{uploaded_db.name}'), uploaded_db.name]
     selectbox_db = st.selectbox(
-      'Which databast would you like to use?',
+      'Which database would you like to use?',
       st.session_state.dbs.keys(),
       index=None,
       placeholder='Select a database...',
